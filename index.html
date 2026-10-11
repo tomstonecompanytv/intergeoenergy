@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head><body>
+<title>Inter GeoEnergy AG</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&family=Carlito:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: ein Schnitt durch die Halde – Navy-Kopf mit Luftbild, darunter helle, ruhige Bänder; Gold nur dort, wo vom Metall die Rede ist */
+:root{
+  --navy:#0e2240; --navy-2:#17335c; --eis:#e8f0f8; --eis-2:#cfdff0;
+  --grund:#f7fafd; --flaeche:#ffffff; --text:#14263f; --leise:#4f6480;
+  --linie:#c5d4e6; --gold:#a8822c; --auf-navy:#eef4fb; --auf-navy-leise:#b7c9df;
+  --display:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;
+  --body:Carlito,Calibri,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --navy:#081629; --navy-2:#10294b; --eis:#13233b; --eis-2:#1c3353;
+  --grund:#0b1626; --flaeche:#111f34; --text:#e6eef8; --leise:#9fb3cc;
+  --linie:#28405f; --gold:#d6b25e; --auf-navy:#eef4fb; --auf-navy-leise:#b7c9df; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --navy:#081629; --navy-2:#10294b; --eis:#13233b; --eis-2:#1c3353;
+  --grund:#0b1626; --flaeche:#111f34; --text:#e6eef8; --leise:#9fb3cc;
+  --linie:#28405f; --gold:#d6b25e; --auf-navy:#eef4fb; --auf-navy-leise:#b7c9df; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--grund);color:var(--text);font-family:var(--body);font-size:1.12rem;line-height:1.55}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.1;margin:0;text-wrap:balance}
+p{margin:0}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1080px,100%);margin-inline:auto;padding-inline:20px}
+.label{font-family:var(--display);font-weight:500;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+html[data-lang="de"] .en,html[data-lang="en"] .de{display:none}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--navy);color:var(--auf-navy);border-bottom:1px solid var(--navy-2)}
+.kopf{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.7rem}
+.marke{font-family:var(--display);font-weight:600;font-size:1.15rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
+.marke small{display:block;font-weight:500;font-size:.62rem;letter-spacing:.22em;color:var(--auf-navy-leise)}
+.rechts{display:flex;align-items:center;gap:1.3rem}
+nav{display:flex;gap:1.3rem}
+nav a{text-decoration:none;font-family:var(--display);font-weight:500;font-size:.92rem;letter-spacing:.1em;text-transform:uppercase;color:var(--auf-navy-leise)}
+nav a:hover{color:var(--auf-navy)}
+@media(max-width:820px){nav{display:none}}
+.sprache{display:flex;border:1px solid var(--auf-navy-leise);border-radius:2px;overflow:hidden}
+.sprache button{font:500 .85rem var(--display);letter-spacing:.1em;background:none;border:0;color:var(--auf-navy-leise);padding:.4rem .7rem;cursor:pointer}
+.sprache button[aria-pressed="true"]{background:var(--auf-navy);color:var(--navy)}
+
+.hero{position:relative;isolation:isolate;background:var(--navy);color:var(--auf-navy);overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,22,41,.55),rgba(8,22,41,.9))}
+.hero .wrap{padding-block:4.5rem 3rem;display:grid;gap:1.3rem}
+.hero .label{color:#e2c478}
+.hero h1{font-size:clamp(2.3rem,6.4vw,4.3rem);max-width:17ch}
+.hero .lead{max-width:38rem;font-size:1.25rem;color:var(--auf-navy)}
+.fakten{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1.2rem 2rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(238,244,251,.3)}
+.fakten div{min-width:0}
+.fakten b{display:block;font-family:var(--display);font-weight:600;font-size:1.9rem;line-height:1.1}
+.fakten span{font-size:.98rem;color:var(--auf-navy-leise)}
+
+section{padding-block:4rem}
+.band{background:var(--eis)}
+.titel{display:grid;gap:.6rem;margin-bottom:2.2rem}
+.titel h2{font-size:clamp(1.8rem,4.2vw,2.7rem)}
+.titel p{max-width:40rem;color:var(--leise)}
+
+.kreislauf{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:2rem;counter-reset:s}
+.kreislauf li{list-style:none;min-width:0;display:grid;gap:.5rem;align-content:start;padding-top:1rem;border-top:3px solid var(--navy-2);counter-increment:s}
+.kreislauf li::before{content:counter(s);font-family:var(--display);font-weight:600;font-size:1.05rem;color:var(--gold)}
+.kreislauf h3{font-size:1.45rem}
+.kreislauf p{color:var(--leise)}
+ol.kreislauf{margin:0;padding:0}
+
+.projekt{display:grid;grid-template-columns:1.15fr .85fr;gap:2.5rem;align-items:start}
+.projekt>*{min-width:0}
+@media(max-width:800px){.projekt{grid-template-columns:1fr}}
+.projekt h3{font-size:1.7rem;margin-bottom:.7rem}
+.projekt .text{display:grid;gap:1rem}
+.projekt figure{margin:0}
+.projekt figcaption,.bildzeile figcaption{font-size:.9rem;color:var(--leise);margin-top:.45rem}
+dl{margin:0;display:grid;gap:0;border-top:1px solid var(--linie)}
+dl div{display:grid;grid-template-columns:11rem 1fr;gap:1rem;padding:.65rem 0;border-bottom:1px solid var(--linie)}
+dt{font-family:var(--display);font-weight:500;letter-spacing:.04em;color:var(--leise)}
+dd{margin:0;min-width:0}
+@media(max-width:520px){dl div{grid-template-columns:1fr;gap:.1rem}}
+.kette{display:flex;flex-wrap:wrap;gap:.5rem;margin:0;padding:0}
+.kette li{list-style:none;font-family:var(--display);font-weight:500;font-size:.98rem;letter-spacing:.04em;padding:.35rem .75rem;background:var(--flaeche);border:1px solid var(--linie)}
+.kette li:last-child{border-color:var(--gold);color:var(--gold)}
+.tab{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:.5rem .8rem .5rem 0;border-bottom:1px solid var(--linie)}
+th{font-family:var(--display);font-weight:500;color:var(--leise);font-size:.95rem}
+.hinweis{font-size:.95rem;color:var(--leise);border-left:3px solid var(--gold);padding-left:.9rem}
+.weitere{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:2rem;margin-top:3rem}
+.weitere article{min-width:0;display:grid;gap:.5rem;align-content:start;padding-top:1rem;border-top:1px solid var(--linie)}
+.weitere h3{font-size:1.4rem}
+.weitere p{color:var(--leise)}
+.status{font-family:var(--display);font-weight:500;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+
+.zugang{background:var(--navy);color:var(--auf-navy)}
+.zugang .titel p{color:var(--auf-navy-leise)}
+.zugang .label{color:#e2c478}
+.zugang-gitter{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.zugang-gitter>*{min-width:0}
+@media(max-width:760px){.zugang-gitter{grid-template-columns:1fr}}
+.dok{margin:0;padding:0;display:grid}
+.dok li{list-style:none;display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid rgba(238,244,251,.22)}
+.dok span{color:var(--auf-navy-leise);font-size:.92rem;white-space:nowrap}
+.anfrage{border:1px solid rgba(238,244,251,.35);padding:1.5rem;display:grid;gap:.9rem;align-content:start}
+.anfrage h3{font-size:1.4rem}
+.anfrage p{color:var(--auf-navy-leise)}
+.adresse{font-family:var(--display);font-weight:600;font-size:1.35rem;color:#e2c478;user-select:all;overflow-wrap:anywhere}
+.kopieren{justify-self:start;font:500 .9rem var(--display);letter-spacing:.12em;text-transform:uppercase;background:var(--auf-navy);color:var(--navy);border:0;padding:.65rem 1.2rem;cursor:pointer}
+.klein{font-size:.88rem;color:var(--auf-navy-leise)}
+
+footer{padding-block:2rem;font-size:.9rem;color:var(--leise);border-top:1px solid var(--linie)}
+footer .wrap{display:grid;gap:.6rem}
+</style>
+
+<header>
+  <div class="wrap kopf">
+    <a class="marke" href="#start">Inter GeoEnergy AG<small>Mining · Recycling · Precious Metals</small></a>
+    <div class="rechts">
+      <nav aria-label="Navigation">
+        <a href="#kreislauf"><span class="de">Was wir tun</span><span class="en">What we do</span></a>
+        <a href="#projekte"><span class="de">Projekte</span><span class="en">Projects</span></a>
+        <a href="#firma"><span class="de">Unternehmen</span><span class="en">Company</span></a>
+        <a href="#investoren"><span class="de">Investoren</span><span class="en">Investors</span></a>
+      </nav>
+      <div class="sprache" role="group" aria-label="Sprache / Language">
+        <button type="button" id="lang-de" aria-pressed="true">DE</button>
+        <button type="button" id="lang-en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="start">
+  <div class="hero">
+    <img src="halde.jpg" alt="Luftaufnahme einer Haldenlandschaft mit Absetzbecken">
+    <div class="wrap">
+      <p class="label"><span class="de">Schaffhausen · Schweiz · seit 2010</span><span class="en">Schaffhausen · Switzerland · since 2010</span></p>
+      <h1><span class="de">Aus Halden werden Metalle und Baustoffe.</span><span class="en">Turning tailings into metals and building materials.</span></h1>
+      <p class="lead"><span class="de">Die Inter GeoEnergy AG gewinnt wertvolle Metalle aus alten Bergbauhalden. Was übrig bleibt, verarbeitet eine Partnerfirma zu Bauprodukten.</span><span class="en">Inter GeoEnergy AG recovers valuable metals from historical mining tailings. A partner company turns what remains into building products.</span></p>
+      <div class="fakten">
+        <div><b>2,5 Mio. t</b><span class="de">Haldenmaterial bei Novi Sad, Verträge in Verhandlung</span><span class="en">of tailings near Novi Sad, contracts under negotiation</span></div>
+        <div><b><span class="de">Ohne Cyanid</span><span class="en">No cyanide</span></b><span class="de">Aufbereitung mit Wasser und Schwerkraft</span><span class="en">Processing with water and gravity</span></div>
+        <div><b><span class="de">2 Länder</span><span class="en">2 countries</span></b><span class="de">Serbien in Arbeit, Indonesien in der Analyse</span><span class="en">Serbia under way, Indonesia in analysis</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="kreislauf">
+    <div class="wrap">
+      <div class="titel">
+        <p class="label"><span class="de">Was wir tun</span><span class="en">What we do</span></p>
+        <h2><span class="de">Eine Halde, drei Schritte.</span><span class="en">One tailings site, three steps.</span></h2>
+      </div>
+      <ol class="kreislauf">
+        <li><h3><span class="de">Metalle gewinnen</span><span class="en">Recover metals</span></h3><p><span class="de">Wir waschen und sieben das Haldenmaterial vor Ort und gewinnen ein Konzentrat mit Gold und weiteren Metallen.</span><span class="en">We wash and screen the material on site and produce a concentrate containing gold and other metals.</span></p></li>
+        <li><h3><span class="de">Rest verwerten</span><span class="en">Use the remainder</span></h3><p><span class="de">Das mineralische Restmaterial dient nach erfolgter Eignungsprüfung als Rohstoff für Polymerbeton-Bauprodukte (Konzept GreenCycle).</span><span class="en">Once tested for suitability, the remaining mineral material serves as raw material for polymer concrete building products (GreenCycle concept).</span></p></li>
+        <li><h3><span class="de">Halde verkleinern</span><span class="en">Shrink the heap</span></h3><p><span class="de">Je mehr Material verwertet wird, desto weniger muss gelagert und überwacht werden. Das entlastet Betreiber und Umwelt.</span><span class="en">The more material is used, the less has to be stored and monitored. That relieves operators and the environment.</span></p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="projekte" class="band">
+    <div class="wrap">
+      <div class="titel">
+        <p class="label"><span class="de">Projekte</span><span class="en">Projects</span></p>
+        <h2><span class="de">Haldenprojekt Novi Sad, Serbien</span><span class="en">Novi Sad tailings project, Serbia</span></h2>
+        <p><span class="de">Historische Abraumhalden aus der Eisenerzgewinnung. Wir starten klein, messen genau und bauen erst dann aus.</span><span class="en">Historical tailings from iron ore mining. We start small, measure carefully and only then scale up.</span></p>
+      </div>
+      <div class="projekt">
+        <div class="text">
+          <dl>
+            <div><dt><span class="de">Material</span><span class="en">Material</span></dt><dd><span class="de">Rund 2,5 Mio. Tonnen, Abbau- und Abnahmeverträge in Verhandlung</span><span class="en">About 2.5 million tonnes; extraction and offtake contracts under negotiation</span></dd></div>
+            <div><dt><span class="de">Pilotbetrieb</span><span class="en">Pilot run</span></dt><dd><span class="de">Vier Wochen mit mobiler Wasch- und Siebanlage, ca. 2 t pro Stunde, direkt an den Halden (geplant)</span><span class="en">Four weeks with a mobile washing and screening unit, approx. 2 t per hour, directly at the tailings (planned)</span></dd></div>
+            <div><dt><span class="de">Start</span><span class="en">Start-up</span></dt><dd><span class="de">400 t pro Tag</span><span class="en">400 t per day</span></dd></div>
+            <div><dt><span class="de">Ausbau</span><span class="en">Expansion</span></dt><dd><span class="de">bis 2'000 t pro Tag, ausgelegt auf Basis der Pilotdaten</span><span class="en">up to 2,000 t per day, designed on the basis of the pilot data</span></dd></div>
+            <div><dt><span class="de">Eisenmaterial</span><span class="en">Iron material</span></dt><dd><span class="de">Separates Vorkommen mit akkreditiertem Prüfbericht Nr. 373/26 (RZ Technical Control Skopje, ISO/IEC 17025)</span><span class="en">Separate deposit with accredited test report no. 373/26 (RZ Technical Control Skopje, ISO/IEC 17025)</span></dd></div>
+          </dl>
+          <h3 style="margin-top:1rem"><span class="de">Das Verfahren</span><span class="en">The process</span></h3>
+          <ul class="kette">
+            <li><span class="de">Aufgabe</span><span class="en">Feed</span></li><li><span class="de">Sieb</span><span class="en">Screen</span></li><li><span class="de">Waschen</span><span class="en">Wash</span></li><li><span class="de">Klassierung</span><span class="en">Classification</span></li><li>Jig</li><li><span class="de">Zentrifuge</span><span class="en">Centrifugal concentrator</span></li><li><span class="de">Konzentrat</span><span class="en">Concentrate</span></li>
+          </ul>
+          <h3 style="margin-top:1rem"><span class="de">Erste Laborwerte</span><span class="en">First lab values</span></h3>
+          <div class="tab">
+            <table>
+              <thead><tr><th>Element</th><th><span class="de">Grobes Material</span><span class="en">Coarse material</span></th><th><span class="de">Feines Material</span><span class="en">Fine material</span></th></tr></thead>
+              <tbody>
+                <tr><td><span class="de">Gold</span><span class="en">Gold</span> (Au)</td><td>1 g/t</td><td>3 g/t</td></tr>
+                <tr><td><span class="de">Silber</span><span class="en">Silver</span> (Ag)</td><td>83 g/t</td><td>85 g/t</td></tr>
+                <tr><td>Palladium (Pd)</td><td>&lt; 1 g/t</td><td>15 g/t</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="hinweis"><span class="de">Die Werte stammen aus Einzelproben und sind nicht repräsentativ für die ganze Halde. Der Pilotbetrieb und ein akkreditiertes Labor liefern die verbindlichen Zahlen.</span><span class="en">These values come from individual samples and are not representative of the whole site. The pilot run and an accredited laboratory will provide the binding figures.</span></p>
+        </div>
+        <div style="display:grid;gap:1.5rem">
+          <figure><img src="anlage.jpg" alt="Mobile Waschanlage auf einem Anhänger in einer Werkhalle"><figcaption><span class="de">Mobile Waschanlage auf dem Anhänger, wie sie für den Pilotbetrieb vorgesehen ist.</span><span class="en">Mobile washing unit on a trailer, as planned for the pilot run.</span></figcaption></figure>
+          <figure><img src="standort.jpg" alt="Abgedeckte Materialhalden hinter einem Werkstor"><figcaption><span class="de">Materialhalden vor Ort.</span><span class="en">Material heaps on site.</span></figcaption></figure>
+        </div>
+      </div>
+
+      <div class="weitere">
+        <article>
+          <p class="status"><span class="de">In der Analyse</span><span class="en">In analysis</span></p>
+          <h3><span class="de">Indonesien</span><span class="en">Indonesia</span></h3>
+          <p><span class="de">Wir beginnen, Material aus Indonesien zu analysieren. Ausgebaut wird erst, wenn Serbien stabil läuft, vorsichtig und mit soliden Partnern.</span><span class="en">We are beginning to analyse material from Indonesia. We expand only once operations in Serbia run stably, cautiously and with solid partners.</span></p>
+        </article>
+        <article>
+          <p class="status"><span class="de">Beteiligung im Erwerb</span><span class="en">Acquisition in progress</span></p>
+          <h3><span class="de">Raffinerie Sirius, Bahrain</span><span class="en">Sirius refinery, Bahrain</span></h3>
+          <p><span class="de">Über die Tochter Sirius Assets WLL erwirbt die IGE 60 % der Sirius Commodities BSC (c). Der Vollzug steht noch aus.</span><span class="en">Through its subsidiary Sirius Assets WLL, IGE is acquiring 60% of Sirius Commodities BSC (c). Completion is pending.</span></p>
+        </article>
+        <article>
+          <p class="status"><span class="de">Konzept</span><span class="en">Concept</span></p>
+          <h3>GreenCycle</h3>
+          <p><span class="de">Aus dem gewaschenen Restmaterial entstehen Polymerbeton-Bauteile für Strassen- und Hochbau. Eignung und Umfang werden je Projekt nachgewiesen.</span><span class="en">Washed residual material becomes polymer concrete elements for road and building construction. Suitability and scope are demonstrated project by project.</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="firma">
+    <div class="wrap">
+      <div class="titel">
+        <p class="label"><span class="de">Unternehmen</span><span class="en">Company</span></p>
+        <h2>Inter GeoEnergy AG</h2>
+        <p><span class="de">Schweizer Beteiligungs- und Handelsgesellschaft für die Rohstoffprojekte der Gruppe.</span><span class="en">Swiss holding and trading company for the group's raw material projects.</span></p>
+      </div>
+      <dl>
+        <div><dt><span class="de">Sitz</span><span class="en">Registered office</span></dt><dd>Mühlenstrasse 70, 8200 Schaffhausen</dd></div>
+        <div><dt><span class="de">Handelsregister</span><span class="en">Commercial register</span></dt><dd>CHE-115.692.298 · <span class="de">eingetragen seit 19.05.2010</span><span class="en">registered since 19 May 2010</span></dd></div>
+        <div><dt><span class="de">Aktienkapital</span><span class="en">Share capital</span></dt><dd>CHF 200'000, <span class="de">voll liberiert</span><span class="en">fully paid in</span></dd></div>
+        <div><dt><span class="de">Verwaltungsrat</span><span class="en">Board of directors</span></dt><dd>Pierre Schaerer</dd></div>
+        <div><dt>Investor Relations</dt><dd>Beat Martin Dutli, CDB RESORT AG, Zürich</dd></div>
+        <div><dt><span class="de">Aktionärin</span><span class="en">Shareholder</span></dt><dd>CDB RESORT AG, Restelbergstrasse 80, 8044 Zürich</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="investoren" class="zugang">
+    <div class="wrap">
+      <div class="titel">
+        <p class="label"><span class="de">Investoren-Bereich</span><span class="en">Investor area</span></p>
+        <h2><span class="de">Unterlagen für qualifizierte Investoren</span><span class="en">Documents for qualified investors</span></h2>
+        <p><span class="de">Die Beteiligung läuft über die CDB RESORT AG. Die vollständigen Unterlagen erhalten Sie persönlich und mit eigenem Zugang.</span><span class="en">Participation is handled through CDB RESORT AG. You receive the complete documents personally and with your own access.</span></p>
+      </div>
+      <div class="zugang-gitter">
+        <ul class="dok">
+          <li><span class="de">Investorendokumentation</span><span class="en">Investor documentation</span><span>DE · EN</span></li>
+          <li><span class="de">Investitionsvertrag</span><span class="en">Investment agreement</span><span>DE</span></li>
+          <li><span class="de">Handelsregisterauszug IGE</span><span class="en">Commercial register extract IGE</span><span>PDF</span></li>
+          <li><span class="de">Handelsregisterauszug CDB RESORT AG</span><span class="en">Commercial register extract CDB RESORT AG</span><span>PDF</span></li>
+          <li><span class="de">Projektstudie Haldenverwertung</span><span class="en">Project study on tailings utilisation</span><span>EN</span></li>
+        </ul>
+        <div class="anfrage">
+          <h3><span class="de">Zugang anfragen</span><span class="en">Request access</span></h3>
+          <p><span class="de">Schreiben Sie uns kurz, wer Sie sind. Wir melden uns persönlich bei Ihnen.</span><span class="en">Tell us briefly who you are. We will get back to you personally.</span></p>
+          <p class="adresse" id="mail">beat.dutli@gmail.com</p>
+          <button type="button" class="kopieren" id="kopieren"><span class="de">Adresse kopieren</span><span class="en">Copy address</span></button>
+          <p class="klein">Beat Martin Dutli · +41 79 320 72 52</p>
+        </div>
+      </div>
+      <p class="klein" style="margin-top:2rem;max-width:52rem"><span class="de">Diese Seite ist kein öffentliches Angebot und kein Prospekt. Unterlagen gehen ausschliesslich an qualifizierte Investoren im Sinne des schweizerischen Rechts. Investitionen in Rohstoffprojekte sind mit erheblichen Risiken verbunden, bis hin zum Totalverlust.</span><span class="en">This page is neither a public offer nor a prospectus. Documents are provided exclusively to qualified investors within the meaning of Swiss law. Investments in raw material projects involve substantial risks, up to and including total loss.</span></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Inter GeoEnergy AG · Mühlenstrasse 70 · 8200 Schaffhausen · CHE-115.692.298</p>
+    <p><span class="de">Alle Angaben zu Mengen und Gehalten sind interne, nicht unabhängig geprüfte Schätzungen der Geschäftsleitung.</span><span class="en">All figures on quantities and grades are internal management estimates that have not been independently verified.</span></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement,de=document.getElementById('lang-de'),en=document.getElementById('lang-en');
+  function setze(l){root.setAttribute('data-lang',l);root.lang=l;de.setAttribute('aria-pressed',l==='de');en.setAttribute('aria-pressed',l==='en');try{localStorage.setItem('ige-lang',l)}catch(e){}}
+  var l='de';try{l=localStorage.getItem('ige-lang')||'de'}catch(e){}
+  if(location.hash==='#en')l='en';
+  setze(l==='en'?'en':'de');
+  de.addEventListener('click',function(){setze('de')});en.addEventListener('click',function(){setze('en')});
+  var k=document.getElementById('kopieren');
+  k.addEventListener('click',function(){
+    var t=document.getElementById('mail').textContent;
+    function ok(){k.textContent=root.getAttribute('data-lang')==='en'?'Copied':'Kopiert'}
+    try{navigator.clipboard.writeText(t).then(ok,function(){var r=document.createRange();r.selectNodeContents(document.getElementById('mail'));var s=getSelection();s.removeAllRanges();s.addRange(r)})}catch(e){}
+  });
+})();
+</script>
+
+</body></html>
